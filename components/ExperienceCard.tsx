@@ -41,18 +41,18 @@ export default function ExperienceCard({ experience }: Props) {
             <Image
               key={technology._id}
               src={urlFor(technology.image).url()}
-              height="50"
-              width="50"
+              height={100}
+              width={100}
               alt=""
               className="rounded-full h-10 w-10 object-cover"
             />
           ))}
         </div>
         <p className="uppercase py-5 text-gray-300">
-          {new Date(experience.dateStarted).toDateString()} -{" "}
+          {new Date(experience.dateStarted).toLocaleDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
-            : new Date(experience.dateEnded).toDateString()}
+            : new Date(experience.dateEnded).toLocaleDateString()}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-lg">
           {experience.bulletPoints.map((point, i) => (
