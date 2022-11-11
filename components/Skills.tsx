@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Skill from "./Skill";
 import { Skill as SkillType } from "../typings";
 
-type Props = { skills: SkillType };
+type Props = { skills: SkillType[] };
 
 export default function Skills({ skills }: Props) {
   return (
@@ -23,13 +23,14 @@ export default function Skills({ skills }: Props) {
           Hover over a skill to see skill name
         </h3>
         <div className="grid grid-cols-4 gap-5">
-          {skills.slice(0, skills.length / 2).map((skill) => (
+          {skills.slice(0, skills.length / 2).map((skill: SkillType) => (
             <Skill key={skill._id} skill={skill} />
           ))}
-
-          {skills.slice(skills.length / 2, skills.length).map((skill) => (
-            <Skill key={skill._id} skill={skill} directionLeft />
-          ))}
+          {skills
+            .slice(skills.length / 2, skills.length)
+            .map((skill: SkillType) => (
+              <Skill key={skill._id} skill={skill} />
+            ))}
         </div>
       </motion.div>
     </section>
