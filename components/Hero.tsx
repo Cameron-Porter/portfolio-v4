@@ -7,7 +7,7 @@ import { PageInfo } from "../typings";
 import BackgroundCircles from "./BackgroundCircles";
 
 type Props = {
-  pageInfo: PageInfo;
+  pageInfo: PageInfo
 };
 
 export default function Hero({ pageInfo }: Props) {
