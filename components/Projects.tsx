@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { projects: Project[] };
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
-
+export default function Projects({ projects }: Props) {
   return (
     <section id="projects" className="snap-start">
       <motion.div
@@ -22,7 +22,10 @@ export default function Projects({}: Props) {
         </h3>
         <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#22f3ee]">
           {projects.map((project, i) => (
-            <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+            <div
+              key={project._id}
+              className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
+            >
               <motion.div
                 initial={{
                   y: -300,
@@ -33,7 +36,7 @@ export default function Projects({}: Props) {
                 viewport={{ once: true }}
               >
                 <Image
-                  src="https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
+                  src={urlFor(project.image).url()}
                   height="500"
                   width="500"
                   alt=""
@@ -44,13 +47,25 @@ export default function Projects({}: Props) {
                   <span className="underline decoration-[#22d3ee]">
                     Case Study {i + 1} of {projects.length}:
                   </span>{" "}
-                  UPS Clone
+                  {project.title}
                 </h4>
+
+                {project.technologies.map((tech) => (
+                  <div
+                    key={tech._id}
+                    className="flex items-center space-x-2 justify-center"
+                  >
+                    <Image
+                      height="20"
+                      width="20"
+                      src={urlFor(tech.image).url()}
+                      alt=""
+                    />
+                  </div>
+                ))}
+
                 <p className="text-center text-lg md:text-left">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Saepe mollitia fuga nobis ex. Provident enim sint, commodi
-                  impedit voluptatem iusto dicta esse ratione. Ipsum cumque
-                  accusantium libero neque a saepe!
+                  {project.summary}
                 </p>
               </div>
             </div>
