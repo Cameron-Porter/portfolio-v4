@@ -6,9 +6,7 @@ import { urlFor } from "../sanity";
 import { PageInfo } from "../typings";
 import BackgroundCircles from "./BackgroundCircles";
 
-type Props = {
-  pageInfo: PageInfo
-};
+type Props = { pageInfo: PageInfo };
 
 export default function Hero({ pageInfo }: Props) {
   const [text, count] = useTypewriter({
