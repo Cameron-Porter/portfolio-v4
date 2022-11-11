@@ -41,7 +41,7 @@ export default function Projects({ projects }: Props) {
                   height="500"
                   width="500"
                   alt=""
-                  className="h-[13rem] w-[13rem] object-cover"
+                  className="h-[13rem] w-[13rem] object-cover rounded-md"
                 />
               </motion.div>
               <div className="space-y-10 px-0 md:px-10 max-w-6xl">
