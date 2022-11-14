@@ -34,14 +34,12 @@ export default function Projects({ projects }: Props) {
                 transition={{ duration: 1.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className=""
               >
                 <Image
                   src={urlFor(project.image).url()}
                   height="500"
                   width="500"
                   alt=""
-                  className="h-[13rem] w-[13rem] object-cover rounded-md"
                 />
               </motion.div>
               <div className="space-y-10 px-0 md:px-10 max-w-6xl">
@@ -51,18 +49,20 @@ export default function Projects({ projects }: Props) {
                   </span>{" "}
                   {project.title}
                 </h4>
-                <div className="flex items-center space-x-4 justify-center">
-                  {project.technologies.map((technology) => (
+
+                {project.technologies.map((tech) => (
+                  <div
+                    key={tech._id}
+                    className="flex items-center space-x-2 justify-center"
+                  >
                     <Image
-                      key={technology._id}
-                      height="30"
-                      width="30"
-                      src={urlFor(technology.image).url()}
+                      height="20"
+                      width="20"
+                      src={urlFor(tech.image).url()}
                       alt=""
-                      className="rounded-full"
                     />
-                  ))}
-                </div>
+                  </div>
+                ))}
 
                 <p className="text-center text-lg md:text-left">
                   {project.summary}
