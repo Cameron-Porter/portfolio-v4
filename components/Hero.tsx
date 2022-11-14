@@ -8,7 +8,7 @@ import BackgroundCircles from "./BackgroundCircles";
 
 type Props = { pageInfo: PageInfo };
 
-export default function Hero({ pageInfo }: Props) {
+export default function Hero() {
   const [text, count] = useTypewriter({
     words: ["Hey there, I'm Cameron", "<Veteran />", "Lover-of-Code.tsx"],
     loop: true,
@@ -20,14 +20,14 @@ export default function Hero({ pageInfo }: Props) {
         <BackgroundCircles />
         <Image
           className="relative rounded-full h-32 w-32 mx-auto object-cover"
-          src={urlFor(pageInfo?.heroImage).url()}
+          src="https://avatars.githubusercontent.com/u/60114461?v=4"
           alt=""
           width="100"
           height="100"
         />
         <div className="z-20">
           <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
-            {pageInfo.role}
+            software engineer
           </h2>
           <h1 className="text-5xl lg:text-6xl font-semibold px-10">
             <span className="mr-3">{text}</span>

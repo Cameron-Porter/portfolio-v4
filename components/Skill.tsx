@@ -9,7 +9,7 @@ type Props = {
   directionLeft?: boolean;
 };
 
-export default function Skill({ skill, directionLeft }: Props) {
+export default function Skill({ directionLeft }: Props) {
   return (
     <div className="group relative flex cursor-pointer">
       <motion.div
@@ -27,7 +27,7 @@ export default function Skill({ skill, directionLeft }: Props) {
         }}
       >
         <Image
-          src={urlFor(skill.image).url()}
+          src="https://avatars.githubusercontent.com/u/60114461?v=4"
           alt=""
           height="100"
           width="100"
@@ -37,7 +37,7 @@ export default function Skill({ skill, directionLeft }: Props) {
       <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white h-18 w-18 md:w-24 md:h-24 rounded-full z-0">
         <div className="flex items-center justify-center h-full">
           <p className="text-lg font-bold text-black opacity-100 flex text-center">
-            {skill.title}
+            did it
           </p>
         </div>
       </div>

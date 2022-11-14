@@ -6,7 +6,7 @@ import { urlFor } from "../sanity";
 
 type Props = { pageInfo: PageInfo };
 
-export default function About({ pageInfo }: Props) {
+export default function About() {
   return (
     <section id="about" className="snap-center">
       <motion.div
@@ -38,7 +38,7 @@ export default function About({ pageInfo }: Props) {
           className="-mb-20 flex flex-shrink-0 w-56 h-56 md:mb-0 md:w-64 md:h-96 xl:w-[500px] xl:h-[600px] items-center"
         >
           <Image
-            src={urlFor(pageInfo?.profilePic).url()}
+            src="https://avatars.githubusercontent.com/u/60114461?v=4"
             height="1000"
             width="1000"
             className="rounded-full object-cover md:rounded-lg align-middle"
@@ -52,7 +52,7 @@ export default function About({ pageInfo }: Props) {
             <span className="underline decoration-[#22d3ee]/50">little</span>{" "}
             background
           </h4>
-          <p className="text-sm">{pageInfo?.backgroundInfo}</p>
+          <p className="text-sm">blah</p>
         </div>
       </motion.div>
     </section>
