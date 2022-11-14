@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Skill } from "../typings";
 import { urlFor } from "../sanity";
+import { Skill as SkillType } from "../typings";
 
 type Props = {
-  skill: Skill;
+  skill: SkillType;
   directionLeft?: boolean;
 };
 
