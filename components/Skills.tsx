@@ -5,7 +5,7 @@ import { Skill as SkillType } from "../typings";
 
 type Props = { skills: SkillType[] };
 
-export default function Skills({ skills }: Props) {
+export default function Skills() {
   return (
     <section id="skills" className="snap-start">
       <motion.div
@@ -23,14 +23,14 @@ export default function Skills({ skills }: Props) {
           Hover over a skill to see skill name
         </h3>
         <div className="grid grid-cols-4 gap-5">
-          {skills.slice(0, skills.length / 2).map((skill: SkillType) => (
+          {/* {skills.slice(0, skills.length / 2).map((skill: SkillType) => (
             <Skill key={skill._id} skill={skill} />
           ))}
           {skills
             .slice(skills.length / 2, skills.length)
             .map((skill: SkillType) => (
               <Skill key={skill._id} skill={skill} />
-            ))}
+            ))} */}
         </div>
       </motion.div>
     </section>
