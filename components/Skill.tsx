@@ -5,8 +5,8 @@ import { Skill } from "../typings";
 import { urlFor } from "../sanity";
 
 type Props = {
-  directionLeft?: boolean;
   skill: Skill;
+  directionLeft?: boolean;
 };
 
 export default function Skill({ skill, directionLeft }: Props) {
