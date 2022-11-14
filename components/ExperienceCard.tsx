@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Experience } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { experience: Experience };
 
-export default function ExperienceCard({}: Props) {
+export default function ExperienceCard({ experience }: Props) {
   return (
     <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.div
@@ -24,7 +26,7 @@ export default function ExperienceCard({}: Props) {
         }}
       >
         <Image
-          src="https://res.cloudinary.com/dz58encu1/image/upload/v1666809823/sealCoastGuard_xkpbn5.png"
+          src={urlFor(experience.companyImage).url()}
           height="400"
           width="400"
           alt=""
@@ -35,40 +37,27 @@ export default function ExperienceCard({}: Props) {
         <h4 className="text-4xl font-light">Software Engineer</h4>
         <p className="font-bold text-2xl mt-1">Merkle, Inc</p>
         <div className="flex space-x-2 my-2">
-          <Image
-            src="https://res.cloudinary.com/dz58encu1/image/upload/v1666809823/sealCoastGuard_xkpbn5.png"
-            height="50"
-            width="50"
-            alt=""
-            className="rounded-full h-10 w-10 object-cover"
-          />
-          <Image
-            src="https://res.cloudinary.com/dz58encu1/image/upload/v1666809823/sealCoastGuard_xkpbn5.png"
-            height="50"
-            width="50"
-            alt=""
-            className="rounded-full h-10 w-10 object-cover"
-          />
-          <Image
-            src="https://res.cloudinary.com/dz58encu1/image/upload/v1666809823/sealCoastGuard_xkpbn5.png"
-            height="50"
-            width="50"
-            alt=""
-            className="rounded-full h-10 w-10 object-cover"
-          />
-          {/* Tech Used */}
-          {/* Tech Used */}
-          {/* Tech Used */}
+          {experience.technologies.map((technology) => (
+            <Image
+              key={technology._id}
+              src={urlFor(technology.image).url()}
+              height={100}
+              width={100}
+              alt=""
+              className="rounded-full h-10 w-10 object-cover"
+            />
+          ))}
         </div>
         <p className="uppercase py-5 text-gray-300">
-          Started work... - Ended...
+          {new Date(experience.dateStarted).toLocaleDateString()} -{" "}
+          {experience.isCurrentlyWorkingHere
+            ? "Present"
+            : new Date(experience.dateEnded).toLocaleDateString()}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-lg">
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
-          <li>Summary Points</li>
+          {experience.bulletPoints.map((point, i) => (
+            <li key={i}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>

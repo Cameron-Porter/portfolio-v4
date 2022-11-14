@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Project } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { projects: Project[] };
 
-export default function Projects({}: Props) {
-  const projects = [1, 2, 3, 4, 5];
-
+export default function Projects({ projects }: Props) {
   return (
     <section id="projects" className="snap-start">
       <motion.div
@@ -34,12 +34,14 @@ export default function Projects({}: Props) {
                 transition={{ duration: 1.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                className=""
               >
                 <Image
-                  src="https://cdn.sanity.io/images/ltuexkre/production/af7ca99b5a796d0698cf9121a4a0795b5022b6be-666x375.png"
+                  src={urlFor(project.image).url()}
                   height="500"
                   width="500"
                   alt=""
+                  className="h-[13rem] w-[13rem] object-cover rounded-md"
                 />
               </motion.div>
               <div className="space-y-10 px-0 md:px-10 max-w-6xl">
@@ -47,13 +49,23 @@ export default function Projects({}: Props) {
                   <span className="underline decoration-[#22d3ee]">
                     Case Study {i + 1} of {projects.length}:
                   </span>{" "}
-                  UPS Clone
+                  {project.title}
                 </h4>
+                <div className="flex items-center space-x-4 justify-center">
+                  {project.technologies.map((technology) => (
+                    <Image
+                      key={technology._id}
+                      height="30"
+                      width="30"
+                      src={urlFor(technology.image).url()}
+                      alt=""
+                      className="rounded-full"
+                    />
+                  ))}
+                </div>
+
                 <p className="text-center text-lg md:text-left">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Saepe mollitia fuga nobis ex. Provident enim sint, commodi
-                  impedit voluptatem iusto dicta esse ratione. Ipsum cumque
-                  accusantium libero neque a saepe!
+                  {project.summary}
                 </p>
               </div>
             </div>

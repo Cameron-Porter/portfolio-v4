@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = { pageInfo: PageInfo };
 
-export default function About({}: Props) {
+export default function About({ pageInfo }: Props) {
   return (
     <section id="about" className="snap-center">
       <motion.div
@@ -36,7 +38,7 @@ export default function About({}: Props) {
           className="-mb-20 flex flex-shrink-0 w-56 h-56 md:mb-0 md:w-64 md:h-96 xl:w-[500px] xl:h-[600px] items-center"
         >
           <Image
-            src="/../public/totem.jpg"
+            src={urlFor(pageInfo?.profilePic).url()}
             height="1000"
             width="1000"
             className="rounded-full object-cover md:rounded-lg align-middle"
@@ -50,16 +52,7 @@ export default function About({}: Props) {
             <span className="underline decoration-[#22d3ee]/50">little</span>{" "}
             background
           </h4>
-          <p className="text-sm">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi et,
-            repellendus recusandae minima ratione debitis reprehenderit adipisci
-            maxime. Nobis nulla velit laborum repudiandae dolorem aliquam
-            blanditiis commodi eum quisquam laudantium? Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Dolor repellat sit dicta
-            deleniti, doloremque exercitationem quis ad quaerat atque quo
-            voluptatum quia. Doloribus quasi impedit quas amet, reiciendis
-            accusantium quod?
-          </p>
+          <p className="text-sm">{pageInfo?.backgroundInfo}</p>
         </div>
       </motion.div>
     </section>

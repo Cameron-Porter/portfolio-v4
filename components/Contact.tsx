@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-type Inputs = {
+type ContactInput = {
   name: string;
   email: string;
   subject: string;
@@ -12,8 +12,25 @@ type Inputs = {
 type Props = {};
 
 export default function Contact({}: Props) {
-  const { register, handleSubmit } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
+  const [submitted, setSubmitted] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactInput>();
+  const onSubmit: SubmitHandler<ContactInput> = async (data) => {
+    fetch("/api/createMessage", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then(() => {
+        setSubmitted(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSubmitted(false);
+      });
+  };
   return (
     <section id="contact" className="snap-start">
       <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
@@ -34,42 +51,86 @@ export default function Contact({}: Props) {
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col space-y-2 w-fit mx-auto"
-          >
-            <div className="flex space-x-2">
+          {submitted ? (
+            <div className="flex flex-col p-10 my-10 bg-[#22f3ee] text-black max-w-2xl mx-auto rounded-lg">
+              <h3 className="text-3xl font-bold">
+                Thank you for reaching out!
+              </h3>
+              <p>
+                We will get back with you as soon as possible. Till then, have a
+                wonderful day!
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col space-y-2 w-fit mx-auto"
+            >
+              <div className="flex space-x-2">
+                <div>
+                  <input
+                    {...register("name", { required: true })}
+                    placeholder="Name"
+                    className="contactInput"
+                    type="text"
+                  />
+                  <div className="flex flex-col">
+                    {errors.name && (
+                      <span className="text-red-500">
+                        - The name field is required
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <input
+                    {...register("email", { required: true })}
+                    placeholder="Email"
+                    className="contactInput"
+                    type="email"
+                  />
+                  <div className="flex flex-col">
+                    {errors.email && (
+                      <span className="text-red-500">
+                        - The email field is required
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
               <input
-                {...register("name")}
-                placeholder="Name"
+                {...register("subject", { required: true })}
+                placeholder="Subject"
                 className="contactInput"
                 type="text"
               />
-              <input
-                {...register("email")}
-                placeholder="Email"
+              <div className="flex flex-col">
+                {errors.subject && (
+                  <span className="text-red-500">
+                    - The subject field is required
+                  </span>
+                )}
+              </div>
+              <textarea
+                {...register("message", { required: true })}
+                placeholder="Message"
                 className="contactInput"
-                type="email"
               />
-            </div>
-            <input
-              {...register("subject")}
-              placeholder="Subject"
-              className="contactInput"
-              type="text"
-            />
-            <textarea
-              {...register("message")}
-              placeholder="Message"
-              className="contactInput"
-            />
-            <button
-              className="bg-[#22f3ee] py-5 px-10 rounded-md text-black font-bold"
-              type="submit"
-            >
-              Submit
-            </button>
-          </form>
+              <div className="flex flex-col">
+                {errors.message && (
+                  <span className="text-red-500 pb-5">
+                    - The message field is required
+                  </span>
+                )}
+              </div>
+              <button
+                className="bg-[#22f3ee] py-5 px-10 rounded-md text-black font-bold"
+                type="submit"
+              >
+                Submit
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
