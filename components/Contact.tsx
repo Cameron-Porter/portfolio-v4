@@ -40,19 +40,17 @@ export default function Contact({}: Props) {
         <div className="flex flex-col w-full max-w-5xl mx-2 space-y-3">
           <h4 className="flex-wrap text-xl font-semibold text-center">
             Intrigued by what you see? <wbr />
-            <span className="underline decoration-[#22f3ee]">
-              Lets Connect.
-            </span>
+            <span className="underline decoration-cyan-500">Lets Connect.</span>
           </h4>
           <div className="space-y-10">
             <div className="flex items-center space-x-5 justify-center">
-              <EnvelopeIcon className="text-[#22f3ee] h-7 w-7 animate-pulse" />
+              <EnvelopeIcon className="text-cyan-500 h-7 w-7 animate-pulse" />
               <p className="space-y-10">crporter171@gmail.com</p>
             </div>
           </div>
 
           {submitted ? (
-            <div className="flex flex-col p-5 mt-[3rem] bg-[#22f3ee] text-black max-w-2xl mx-auto rounded-lg">
+            <div className="flex flex-col p-5 mt-[3rem] bg-cyan-500 text-black max-w-2xl mx-auto rounded-lg">
               <h3 className="text-2xl font-bold">
                 Thank you for reaching out!
               </h3>
@@ -124,7 +122,7 @@ export default function Contact({}: Props) {
                 )}
               </div>
               <button
-                className="bg-[#22f3ee] py-5 px-10 rounded-md text-black font-bold"
+                className="bg-cyan-500 py-5 px-10 rounded-md text-black font-bold"
                 type="submit"
               >
                 Submit

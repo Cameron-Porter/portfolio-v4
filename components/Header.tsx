@@ -29,7 +29,7 @@ export default function Header({ socials }: Props) {
           <SocialIcon
             key={social._id}
             url={social.url}
-            fgColor="gray"
+            fgColor="white"
             bgColor="transparent"
             className="rounded-full hover:bg-cyan-500 hover:animate-bounce focus:bg-cyan-500 focus:animate-bounce"
           />
@@ -55,7 +55,7 @@ export default function Header({ socials }: Props) {
           <SocialIcon
             className="cursor-pointer"
             network="email"
-            fgColor="gray"
+            fgColor="white"
             bgColor="transparent"
           />
           <p className="uppercase hidden md:inline-flex text-sm text-gray-400">

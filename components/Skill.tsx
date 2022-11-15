@@ -12,7 +12,7 @@ export default function Skill({ skill }: Props) {
   return (
     <div className="group relative flex cursor-pointer justify-center">
       <motion.div
-        className="rounded-full filter group-hover:grayscale duration-300 ease-in-out object-cover overflow-hidden mx-3 my-6 pb-3"
+        className="rounded-full filter group-hover:grayscale duration-300 ease-in-out object-cover overflow-hidden mx-3 my-1 pb-1"
         initial={{
           opacity: 0,
         }}
