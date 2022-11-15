@@ -16,7 +16,7 @@ export default function Hero({ pageInfo }: Props) {
   });
   return (
     <section id="hero" className="snap-start">
-      <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+      <div className="w-full h-screen flex flex-col sm:px-[.5rem] space-y-8 items-center justify-center text-center overflow-hidden">
         <BackgroundCircles />
         <Image
           className="relative rounded-full h-32 w-32 mx-auto object-cover"
@@ -26,14 +26,14 @@ export default function Hero({ pageInfo }: Props) {
           height="100"
         />
         <div className="z-20">
-          <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+          <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[10px] md:tracking-[15px]">
             {pageInfo.role}
           </h2>
-          <h1 className="text-5xl lg:text-6xl font-semibold px-10">
+          <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold px-10">
             <span className="mr-3">{text}</span>
             <Cursor cursorColor="#22d3ee" />
           </h1>
-          <div className="pt-5">
+          <div className="p-4 md:p-5">
             <Link href="#about">
               <button className="heroButton">About</button>
             </Link>

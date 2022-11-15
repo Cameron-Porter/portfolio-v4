@@ -6,16 +6,14 @@ import { Skill as SkillType } from "../typings";
 
 type Props = {
   skill: SkillType;
-  directionLeft?: boolean;
 };
 
-export default function Skill({ skill, directionLeft }: Props) {
+export default function Skill({ skill }: Props) {
   return (
-    <div className="group relative flex cursor-pointer">
+    <div className="group relative flex cursor-pointer justify-center">
       <motion.div
-        className="rounded-full border border-gray-500 filter group-hover:grayscale duration-300 ease-in-out"
+        className="rounded-full filter group-hover:grayscale duration-300 ease-in-out object-cover overflow-hidden mx-3 my-6 pb-3"
         initial={{
-          x: directionLeft ? -200 : 200,
           opacity: 0,
         }}
         transition={{
@@ -23,7 +21,6 @@ export default function Skill({ skill, directionLeft }: Props) {
         }}
         whileInView={{
           opacity: 1,
-          x: 0,
         }}
       >
         <Image
@@ -31,16 +28,9 @@ export default function Skill({ skill, directionLeft }: Props) {
           alt=""
           height="150"
           width="150"
-          className="object-cover  w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32"
+          className="w-[3rem] h-[3rem] p-[.35rem] m-2"
         />
       </motion.div>
-      <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-white h-24 w-24 md:w-28 md:h-28 xl:w-32 xl:h-32 rounded-full z-0">
-        <div className="flex items-center justify-center h-full">
-          <p className="text-3xl font-bold text-black opacity-100">
-            {skill.title}
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
