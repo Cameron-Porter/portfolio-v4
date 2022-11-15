@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: Props) {
           height="400"
           width="400"
           alt=""
-          className="rounded-lg w-72 h-36 xl:h-[10rem] xl:w-[10rem] object-cover"
+          className="rounded-lg w-72 h-36 md:h-[15rem] md:w-[30rem] object-cover"
         />
       </motion.div>
       <div className="space-y-4 px-0 md:px-10 max-w-5xl">
