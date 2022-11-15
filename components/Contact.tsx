@@ -33,13 +33,13 @@ export default function Contact({}: Props) {
   };
   return (
     <section id="contact" className="snap-start">
-      <div className="h-screen flex relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center">
-        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <div className="h-screen w-full flex relative flex-col text-center md:text-left md:flex-row max-w-5xl px-10 mx-auto items-center">
+        <h3 className="uppercase tracking-[20px] pl-5 text-cyan-500 text-2xl mt-[4rem] mb-[2rem] animate-pulse">
           Contact
         </h3>
-        <div className="flex flex-col space-y-10">
-          <h4 className="text-4xl font-semibold text-center">
-            Intrigued by what you see?{" "}
+        <div className="flex flex-col w-full max-w-5xl mx-2 space-y-3">
+          <h4 className="flex-wrap text-xl font-semibold text-center">
+            Intrigued by what you see? <wbr />
             <span className="underline decoration-[#22f3ee]">
               Lets Connect.
             </span>
@@ -52,8 +52,8 @@ export default function Contact({}: Props) {
           </div>
 
           {submitted ? (
-            <div className="flex flex-col p-10 my-10 bg-[#22f3ee] text-black max-w-2xl mx-auto rounded-lg">
-              <h3 className="text-3xl font-bold">
+            <div className="flex flex-col p-5 mt-[3rem] bg-[#22f3ee] text-black max-w-2xl mx-auto rounded-lg">
+              <h3 className="text-2xl font-bold">
                 Thank you for reaching out!
               </h3>
               <p>
@@ -64,14 +64,14 @@ export default function Contact({}: Props) {
           ) : (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col space-y-2 w-fit mx-auto"
+              className="flex flex-col space-y-2 w-full mx-auto"
             >
-              <div className="flex space-x-2">
+              <div className="space-y-2 md:space-y-0 md:flex-row md:space-x-2">
                 <div>
                   <input
                     {...register("name", { required: true })}
                     placeholder="Name"
-                    className="contactInput"
+                    className="contactInput w-full"
                     type="text"
                   />
                   <div className="flex flex-col">
@@ -86,7 +86,7 @@ export default function Contact({}: Props) {
                   <input
                     {...register("email", { required: true })}
                     placeholder="Email"
-                    className="contactInput"
+                    className="contactInput w-full"
                     type="email"
                   />
                   <div className="flex flex-col">

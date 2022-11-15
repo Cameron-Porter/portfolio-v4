@@ -23,7 +23,7 @@ export default function Header({ socials }: Props) {
         transition={{
           duration: 1.5,
         }}
-        className="flex items-center"
+        className="flex items-center "
       >
         {socials.map((social) => (
           <SocialIcon
@@ -31,6 +31,7 @@ export default function Header({ socials }: Props) {
             url={social.url}
             fgColor="gray"
             bgColor="transparent"
+            className="rounded-full hover:bg-cyan-500 hover:animate-bounce focus:bg-cyan-500 focus:animate-bounce"
           />
         ))}
       </motion.div>
@@ -49,7 +50,7 @@ export default function Header({ socials }: Props) {
           transition={{
             duration: 1.5,
           }}
-          className="flex flex-row items-center text-gray-300 cursor-pointer"
+          className="flex flex-row items-center text-gray-300 cursor-pointer rounded-full hover:bg-cyan-500 hover:animate-bounce focus:bg-cyan-500 focus:animate-bounce"
         >
           <SocialIcon
             className="cursor-pointer"
