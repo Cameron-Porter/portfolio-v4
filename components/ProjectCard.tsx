@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: Props) {
         <h4 className="text-2xl text-center md:text-3xl font-light md:text-left">
           {project.title}
         </h4>
-        <p className="text-center text-md md:text-left">{project.summary}</p>
+        <p className="text-md md:text-left">{project.summary}</p>
       </div>
     </article>
   );
