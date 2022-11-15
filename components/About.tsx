@@ -53,7 +53,7 @@ export default function About({ pageInfo }: Props) {
               <span className="underline decoration-cyan-500/70">little</span>{" "}
               background
             </h4>
-            <p className="text-sm">{pageInfo?.backgroundInfo}</p>
+            <p className="text-sm text-left">{pageInfo?.backgroundInfo}</p>
           </div>
         </div>
       </motion.div>
