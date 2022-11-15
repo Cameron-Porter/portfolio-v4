@@ -50,7 +50,7 @@ export default function Header({ socials }: Props) {
           transition={{
             duration: 1.5,
           }}
-          className="flex flex-row items-center text-gray-300 cursor-pointer rounded-full hover:bg-cyan-500 hover:animate-bounce focus:bg-cyan-500 focus:animate-bounce"
+          className="flex flex-row items-center text-white cursor-pointer rounded-full hover:bg-cyan-500 hover:animate-bounce focus:bg-cyan-500 focus:animate-bounce"
         >
           <SocialIcon
             className="cursor-pointer"
@@ -58,7 +58,7 @@ export default function Header({ socials }: Props) {
             fgColor="white"
             bgColor="transparent"
           />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+          <p className="uppercase hidden md:inline-flex text-sm text-white">
             Get In Touch
           </p>
         </motion.div>
