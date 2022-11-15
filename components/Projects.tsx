@@ -15,16 +15,16 @@ export default function Projects({ projects }: Props) {
         }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
-        className="h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full mx-auto items-center"
+        className="h-screen max-h-screen relative flex overflow-hidden flex-col text-left max-w-full mx-auto items-center px-10"
       >
         <h3 className="uppercase tracking-[20px] pl-5 text-cyan-500 text-2xl mt-[4rem] mb-[2rem] animate-pulse">
           Projects
         </h3>
-        <div className="w-full flex space-x-1 overflow-x-scroll snap-x snap-mandatory">
+        <div className="w-full h-[75%] flex space-x-1 overflow-x-scroll snap-x snap-mandatory justify-center scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#22f3ee]">
           {projects.map((project, i) => (
             <div
               key={project._id}
-              className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-full max-w-5xl snap-center p-10 cursor-pointer overflow-hidden overflow-y-scroll mb-[4rem] pb-[8rem]"
+              className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-full max-w-5xl snap-center bg-[#292929] p-10 cursor-pointer overflow-hidden overflow-y-scroll"
             >
               <motion.div
                 initial={{
@@ -69,7 +69,6 @@ export default function Projects({ projects }: Props) {
             </div>
           ))}
         </div>
-        <div className="w-full absolute top-[30%] left-0 h-[500px] -skew-y-12 bg-[#22d3ee]/10" />
       </motion.div>
     </section>
   );

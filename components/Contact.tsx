@@ -33,7 +33,7 @@ export default function Contact({}: Props) {
   };
   return (
     <section id="contact" className="snap-start">
-      <div className="h-screen w-full flex relative flex-col text-center md:text-left md:flex-row max-w-5xl px-10 mx-auto items-center">
+      <div className="h-screen max-h-screen w-full flex relative flex-col text-center md:text-left max-w-5xl px-10 mx-auto items-center">
         <h3 className="uppercase tracking-[20px] pl-5 text-cyan-500 text-2xl mt-[4rem] mb-[2rem] animate-pulse">
           Contact
         </h3>
@@ -66,8 +66,8 @@ export default function Contact({}: Props) {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col space-y-2 w-full mx-auto"
             >
-              <div className="space-y-2 md:space-y-0 md:flex-row md:space-x-2">
-                <div>
+              <div className="flex flex-wrap flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2">
+                <div className="md:w-[49%]">
                   <input
                     {...register("name", { required: true })}
                     placeholder="Name"
@@ -82,7 +82,7 @@ export default function Contact({}: Props) {
                     )}
                   </div>
                 </div>
-                <div>
+                <div className="md:w-[49%]">
                   <input
                     {...register("email", { required: true })}
                     placeholder="Email"
