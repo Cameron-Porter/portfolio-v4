@@ -34,8 +34,12 @@ export default function ExperienceCard({ experience }: Props) {
         />
       </motion.div>
       <div className="px-0 md:px-10 max-w-3xl">
-        <h4 className="text-2xl md:text-3xl font-light">Software Engineer</h4>
-        <p className="font-bold text-lg md:text-xl mt-1">Merkle, Inc</p>
+        <h4 className="text-2xl md:text-3xl font-light">
+          {experience.jobTitle}
+        </h4>
+        <p className="font-bold text-lg md:text-xl mt-1">
+          {experience.company}
+        </p>
         {experience.technologies ? (
           <div className="flex space-x-2 my-2">
             {experience.technologies?.map((technology) => (
@@ -53,10 +57,10 @@ export default function ExperienceCard({ experience }: Props) {
           ""
         )}
         <p className="uppercase pt-1 pb-2 text-sm md:text-lg text-gray-300">
-          {new Date(experience.dateStarted).toLocaleDateString()} -{" "}
+          {new Date(experience.dateStarted).toDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
-            : new Date(experience.dateEnded).toLocaleDateString()}
+            : new Date(experience.dateEnded).toDateString()}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-md">
           {experience.bulletPoints.map((point, i) => (
