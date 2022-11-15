@@ -19,7 +19,7 @@ export default function Projects({ projects }: Props) {
         <h3 className="uppercase tracking-[20px] pl-5 text-cyan-500 text-2xl mt-[4rem] mb-[2rem] animate-pulse">
           Projects
         </h3>
-        <div className="w-full h-[75%] flex space-x-1 overflow-x-scroll snap-x snap-mandatory justify-center scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-cyan-500">
+        <div className="w-full h-[75%] flex space-x-1 overflow-x-scroll snap-x snap-mandatory scrollbar-track-gray-400/20 scrollbar-thumb-cyan-500 scrollbar-thin">
           {projects.sort().map((project) => (
             <ProjectCard key={project._id} project={project} />
           ))}
