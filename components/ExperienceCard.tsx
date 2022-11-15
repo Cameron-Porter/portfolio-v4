@@ -57,10 +57,10 @@ export default function ExperienceCard({ experience }: Props) {
           ""
         )}
         <p className="uppercase pt-1 pb-2 text-sm md:text-lg text-gray-300">
-          {new Date(experience.dateStarted).toDateString()} -{" "}
+          {new Date(experience.dateStarted).toLocaleDateString()} -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
-            : new Date(experience.dateEnded).toDateString()}
+            : new Date(experience.dateEnded).toLocaleDateString()}
         </p>
         <ul className="list-disc space-y-4 ml-5 text-md">
           {experience.bulletPoints.map((point, i) => (
