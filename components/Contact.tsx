@@ -64,7 +64,7 @@ export default function Contact({}: Props) {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col space-y-2 w-full mx-auto"
             >
-              <div className="flex flex-wrap flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2">
+              <div className="flex flex-wrap flex-col space-y-2 md:space-y-0 md:flex-row md:space-x-2 md:justify-between">
                 <div className="md:w-[49%]">
                   <input
                     {...register("name", { required: true })}
